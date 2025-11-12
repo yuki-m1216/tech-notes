@@ -94,14 +94,14 @@ Internet → ALB → ECS (Fargate) → RDS (PostgreSQL)
 
 ### レイヤー間の関連性
 
-**障害発生時の検知フロー例:**
+**問題の発生と影響の伝播:**
 
 ```mermaid
 graph TD
-    A[3. インフラ: RDS CPU 100%] --> B[2. アプリ: ECS タスクでDB接続タイムアウト]
-    B --> C[2. アプリ: ALB 5xxエラー増加]
-    C --> D[1. ユーザー体験: Synthetics失敗]
-    D --> E[1. ユーザー体験: RUM エラー率上昇]
+    A[インフラ<br/>RDS CPU 100%] --> B[アプリケーション<br/>ECS タスクでDB接続タイムアウト]
+    B --> C[アプリケーション<br/>ALB 5xxエラー増加]
+    C --> D[ユーザー体験<br/>Synthetics失敗]
+    C --> E[ユーザー体験<br/>RUM エラー率上昇]
 
     style A fill:#4d96ff
     style B fill:#ffd93d
@@ -110,12 +110,12 @@ graph TD
     style E fill:#ff6b6b
 ```
 
-**検知順序と原因特定:**
+**検知の時系列順序:**
 
-1. **最初の検知**: RDS CPU使用率が100%（Warning）
-2. **影響拡大**: ECSタスクでDB接続タイムアウト（Warning）
-3. **ユーザー影響**: ALB 5xxエラー増加（Critical）
-4. **確認**: Synthetics失敗（Critical）
+1. **最初の検知（予兆）**: RDS CPU使用率が100%（Warning） ← インフラレイヤー
+2. **影響拡大**: ECSタスクでDB接続タイムアウト（Warning） ← アプリケーションレイヤー
+3. **ユーザー影響顕在化**: ALB 5xxエラー増加（Critical） ← アプリケーションレイヤー
+4. **ユーザー影響確認**: Synthetics失敗、RUM エラー率上昇（Critical） ← ユーザー体験レイヤー
 
 → 多層監視により、ユーザー影響が出る前の段階（RDS CPU高騰）で予兆を検知できる
 
@@ -175,13 +175,8 @@ Internet → API Gateway → Lambda → DynamoDB
 
 ```mermaid
 graph TD
-    A[3. インフラ: 特に問題なし]
-    B[2. アプリ: Lambda一部実行でタイムアウト]
-    C[2. アプリ: API Gateway エラー率 2%]
-    D[1. ユーザー体験: Synthetics成功<br/>ただしRUMで一部ユーザーエラー]
-
-    B --> C
-    C --> D
+    B[アプリケーション<br/>Lambda一部実行でタイムアウト] --> C[アプリケーション<br/>API Gateway エラー率 2%]
+    C --> D[ユーザー体験<br/>RUMで一部ユーザーエラー<br/>※Syntheticsは成功]
 
     style B fill:#ffd93d
     style C fill:#ffd93d
@@ -254,15 +249,15 @@ graph LR
     style B fill:#ffd93d
 ```
 
-**検知フロー:**
+**問題の発生と影響の伝播:**
 
-1. **3. インフラ**: DynamoDB スロットリング（Warning）
-2. **2. アプリ**: Service C (Lambda) エラー率上昇（Warning）
-3. **2. アプリ**: Service B でService C呼び出しタイムアウト（Warning）
-4. **2. アプリ**: Service B エラー率上昇（Critical）
-5. **1. ユーザー体験**: Synthetics失敗（Critical）
+1. **根本原因（インフラ）**: DynamoDB スロットリング（Warning）
+2. **影響（アプリ - Service C）**: Lambda エラー率上昇（Warning）
+3. **影響拡大（アプリ - Service B）**: Service C呼び出しタイムアウト（Warning）
+4. **影響拡大（アプリ - Service B）**: Service B エラー率上昇（Critical）
+5. **影響（ユーザー体験）**: Synthetics失敗（Critical）
 
-→ X-Rayの分散トレーシングにより、Service Cが根本原因であることを迅速に特定
+→ X-Rayの分散トレーシングにより、根本原因（DynamoDB → Service C）を迅速に特定
 
 ## 多層モニタリングのベストプラクティス
 
