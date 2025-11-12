@@ -1,0 +1,67 @@
+site_name: 学習コンテンツ
+site_description: エンジニアのための実践的な学習資料
+site_author: Your Team Name
+
+theme:
+  name: material
+  language: ja
+  palette:
+    # ライトモード
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    # ダークモード
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替え
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+plugins:
+  - search:
+      lang: ja
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - ホーム: index.md
+  - モニタリング・アラート:
+      - monitoring/index.md
+      - アラート設計:
+          - ユーザー視点の分類: monitoring/alert-classification.md
+          - アラートレベルの決め方: monitoring/alert-levels.md
+      - 多層モニタリング:
+          - 多層モニタリングとは: monitoring/multi-layer-monitoring.md
+          - 実践例: monitoring/multi-layer-examples.md
+      - クラウド環境での考え方:
+          - クラウド特有の設計: monitoring/cloud-specific.md
+          - リソース監視: monitoring/resource-monitoring.md
+      - 実践編:
+          - よくある失敗例: monitoring/common-mistakes.md
