@@ -389,9 +389,11 @@ const tableName = `myapp-${environment}-users-table`;
 
 ### モジュール/クラス名
 
-PascalCaseを使用し、用途が明確な名前にします。
+各ツールの命名規則に従い、用途が明確な名前にします。
 
 === "CDK (TypeScript)"
+    **PascalCase**を使用します。
+
     ```typescript
     // ✅ 良い例
     export class UserAuthenticationStack extends Stack { }
@@ -404,6 +406,8 @@ PascalCaseを使用し、用途が明確な名前にします。
     ```
 
 === "Terraform (HCL)"
+    **snake_case**を使用します。
+
     ```hcl
     # ✅ 良い例: モジュール名やディレクトリ名
     modules/user_authentication/
