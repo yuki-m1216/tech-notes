@@ -15,7 +15,7 @@ Infrastructure as Code（IaC）は、インフラストラクチャをコード�
 
 - **[コーディング原則](coding-principles.md)**: 保守性の高いIaCコードを書くための原則
 - **[テストの重要性](testing.md)**: インフラコードの品質を保証するテスト手法
-- **[ディレクトリ構成](directory-structure.md)**: 実プロジェクトでの推奨ディレクトリ構成 🚧 **編集中**
+- **[ディレクトリ構成](directory-structure.md)**: 実プロジェクトでの推奨ディレクトリ構成
 - **[管理単位のベストプラクティス](management-units.md)**: スタック/stateの適切な分割方法 🚧 **編集中**
 
 ### 💡 実例で学ぶ

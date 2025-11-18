@@ -77,3 +77,4 @@ nav:
       - 実践スキル:
           - コーディング原則: iac/coding-principles.md
           - テストの重要性: iac/testing.md
+          - ディレクトリ構成: iac/directory-structure.md
