@@ -78,3 +78,6 @@ nav:
           - コーディング原則: iac/coding-principles.md
           - テストの重要性: iac/testing.md
           - ディレクトリ構成: iac/directory-structure.md
+          - 管理単位のベストプラクティス: iac/management-units.md
+      - 参考リンク:
+          - 参考リンク集: iac/references.md

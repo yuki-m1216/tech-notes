@@ -16,14 +16,13 @@ Infrastructure as Code（IaC）は、インフラストラクチャをコード�
 - **[コーディング原則](coding-principles.md)**: 保守性の高いIaCコードを書くための原則
 - **[テストの重要性](testing.md)**: インフラコードの品質を保証するテスト手法
 - **[ディレクトリ構成](directory-structure.md)**: 実プロジェクトでの推奨ディレクトリ構成
-- **[管理単位のベストプラクティス](management-units.md)**: スタック/stateの適切な分割方法 🚧 **編集中**
+- **[管理単位のベストプラクティス](management-units.md)**: スタック/stateの適切な分割方法
 
-### 💡 実例で学ぶ
+### 🔗 参考リンク
 
-- **[CDK基本例](examples/cdk-basic.md)**: シンプルな構成から始める 🚧 **編集中**
-- **[CDK応用例](examples/cdk-advanced.md)**: 本番レベルの複雑な構成 🚧 **編集中**
-- **[Terraform基本例](examples/terraform-basic.md)**: シンプルな構成から始める 🚧 **編集中**
-- **[Terraform応用例](examples/terraform-advanced.md)**: 本番レベルの複雑な構成 🚧 **編集中**
+公式ドキュメントやコミュニティのベストプラクティスを参照して、さらに学びを深めましょう。
+
+- **[参考リンク集](references.md)**: 公式サンプル、ベストプラクティス、有用なリソース
 
 ## IaCツールの位置づけ
 
