@@ -2,7 +2,7 @@
 
 実務で役立つ技術知識を体系的に学べる学習コンテンツサイトです。
 
-🔗 **サイトURL**: https://yuki-m1216.github.io/
+🔗 **サイトURL**: https://yuki-m1216.github.io/tech-notes/
 
 ## 📚 コンテンツ
 
