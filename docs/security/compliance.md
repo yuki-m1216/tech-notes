@@ -42,4 +42,4 @@
 - AWS Configでの継続的コンプライアンスチェック
 - よくある失敗パターン
 
-[セキュアな開発プロセスを学ぶ →](secure-development.md){ .md-button }
+[セキュリティの基本原則に戻る ←](basic-principles.md){ .md-button }

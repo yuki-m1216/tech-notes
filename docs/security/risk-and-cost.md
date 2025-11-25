@@ -337,4 +337,4 @@ graph TD
 
 基本原則とリスク管理を理解したら、次は具体的な予防的対策について学びましょう。
 
-[認証・認可を学ぶ →](authentication-authorization.md){ .md-button .md-button--primary }
+[アクセス制御とデータ保護を学ぶ →](access-control.md){ .md-button .md-button--primary }
