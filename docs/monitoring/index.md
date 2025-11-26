@@ -14,6 +14,7 @@
 
 - [ユーザー視点の分類](alert-classification.md) - アラートを誰のために設計するか
 - [アラートレベルの決め方](alert-levels.md) - 重要度の適切な設定方法
+- [よくある失敗例](common-mistakes.md) - 失敗パターンと対策
 
 ### 2. 多層モニタリング
 
@@ -28,3 +29,17 @@
 
 - [クラウド特有の設計](cloud-specific.md) - クラウドならではの考慮点
 - [リソース監視](resource-monitoring.md) - クラウドリソースの効果的な監視
+
+## 参考資料
+
+### 書籍
+
+- [入門 監視 ―モダンなモニタリングのためのデザインパターン](https://amzn.asia/d/7zJNoub) - Mike Julian 著。モニタリングの基本概念から実践的なデザインパターンまでを解説
+- [システム運用アンチパターン](https://amzn.asia/d/dgvUPvS) - Jeffery D. Smith 著。DevOpsの観点から組織・自動化・コミュニケーションの問題を解決する方法を解説
+
+### オンラインリソース
+
+- [モニタリングのベストプラクティス（Datadog）](https://www.datadoghq.com/ja/blog/モニタリングのベストプラクティス/) - Datadog CTOによるモニタリング戦略の解説。ワークメトリクスとリソースメトリクスの分類、アクション可能なアラートの重要性について
+- [Monitoring Distributed Systems（Google SRE Book）](https://sre.google/sre-book/monitoring-distributed-systems/) - Googleのモニタリング原則。アラート疲れの問題と「人を呼び出すことは高コスト」という考え方を解説
+- [Alerting Principles（PagerDuty）](https://response.pagerduty.com/oncall/alerting_principles/) - 「アラートは人間のアクションを必要とするもの」という原則を解説
+- [AWS Observability Best Practices](https://aws-observability.github.io/observability-best-practices/) - AWSにおけるオブザーバビリティのベストプラクティス集。CloudWatch、X-Ray、Syntheticsなどの活用方法
