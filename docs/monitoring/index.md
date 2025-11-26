@@ -23,7 +23,13 @@
 - [多層モニタリングとは](multi-layer-monitoring.md) - 多層監視の必要性
 - [実践例](multi-layer-examples.md) - 具体的な実装例
 
-### 3. クラウド環境での考え方
+### 3. ダッシュボード設計
+
+効果的なダッシュボードの設計方法を学びます。
+
+- [ダッシュボード設計のベストプラクティス](dashboard-design.md) - 目的・メトリクス選定・レイアウト
+
+### 4. クラウド環境での考え方
 
 クラウド環境特有のモニタリング設計を学びます。
 
@@ -43,3 +49,5 @@
 - [Monitoring Distributed Systems（Google SRE Book）](https://sre.google/sre-book/monitoring-distributed-systems/) - Googleのモニタリング原則。アラート疲れの問題と「人を呼び出すことは高コスト」という考え方を解説
 - [Alerting Principles（PagerDuty）](https://response.pagerduty.com/oncall/alerting_principles/) - 「アラートは人間のアクションを必要とするもの」という原則を解説
 - [AWS Observability Best Practices](https://aws-observability.github.io/observability-best-practices/) - AWSにおけるオブザーバビリティのベストプラクティス集。CloudWatch、X-Ray、Syntheticsなどの活用方法
+- [Grafana Dashboard Best Practices](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/) - Grafana公式のダッシュボード設計ガイド。ダッシュボードスプロール（乱立）の防止、テンプレート変数の活用について
+- [Crafting an Actionable Observability Dashboard Experience（Chronosphere）](https://chronosphere.io/learn/observability-dashboard-experience/) - ダッシュボードを「コックピット」として設計する考え方。インシデント対応での活用、視覚的階層について

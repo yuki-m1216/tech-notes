@@ -64,6 +64,8 @@ nav:
       - 多層モニタリング:
           - 多層モニタリングとは: monitoring/multi-layer-monitoring.md
           - 実践例: monitoring/multi-layer-examples.md
+      - ダッシュボード設計:
+          - ベストプラクティス: monitoring/dashboard-design.md
       - クラウド環境での考え方:
           - クラウド特有の設計: monitoring/cloud-specific.md
           - リソース監視: monitoring/resource-monitoring.md

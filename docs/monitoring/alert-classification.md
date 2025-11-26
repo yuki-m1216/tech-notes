@@ -169,3 +169,9 @@ graph TD
 - システム健全性のアラートで予兆段階の検知も重要（Warning/Info）
 - 優先度に応じて通知手段と反応時間を設定する
 - 受信者に応じて通知内容を最適化する
+
+## 参考資料
+
+- [入門 監視 ―モダンなモニタリングのためのデザインパターン](https://amzn.asia/d/7zJNoub) - Mike Julian 著。アラート設計の基本原則を解説
+- [モニタリングのベストプラクティス（Datadog）](https://www.datadoghq.com/ja/blog/モニタリングのベストプラクティス/) - アクション可能なアラートの重要性について
+- [Alerting Principles（PagerDuty）](https://response.pagerduty.com/oncall/alerting_principles/) - 「アラートは人間のアクションを必要とするもの」という原則

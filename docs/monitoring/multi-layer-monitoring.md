@@ -301,3 +301,8 @@ graph TD
 - 上位レイヤーから設計し、下位レイヤーへ展開する
 - ゴールデンシグナル（レイテンシ、トラフィック、エラー、サチュレーション）を指針に監視対象を決める
 - SLI/SLOを定義することで、アラート閾値に客観的な根拠を持たせる
+
+## 参考資料
+
+- [Monitoring Distributed Systems（Google SRE Book）](https://sre.google/sre-book/monitoring-distributed-systems/) - ゴールデンシグナルの出典。分散システムのモニタリング原則
+- [AWS Observability Best Practices](https://aws-observability.github.io/observability-best-practices/) - AWSでの多層モニタリング実装例

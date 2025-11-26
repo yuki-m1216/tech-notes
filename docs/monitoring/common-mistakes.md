@@ -364,3 +364,9 @@ Infoレベルはダッシュボードで定期確認する運用にします。
 9. **インシデント後にポストモーテムでアラートを評価する**
 
 これらの原則を守ることで、持続可能で効果的なモニタリング・アラート運用が実現できます。
+
+## 参考資料
+
+- [システム運用アンチパターン](https://amzn.asia/d/dgvUPvS) - Jeffery D. Smith 著。運用における失敗パターンと対策を解説
+- [モニタリングのベストプラクティス（Datadog）](https://www.datadoghq.com/ja/blog/モニタリングのベストプラクティス/) - よくある失敗を避けるためのベストプラクティス
+- [Monitoring Distributed Systems（Google SRE Book）](https://sre.google/sre-book/monitoring-distributed-systems/) - アラート疲れや過剰な監視の問題について
