@@ -1,0 +1,3866 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="エンジニアのための実践的な学習資料">
+      
+      
+        <meta name="author" content="Your Team Name">
+      
+      
+      
+        <link rel="prev" href="../secure-development/">
+      
+      
+        <link rel="next" href="../../team-development/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>規制対応とデータ保護 - 学習コンテンツ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="学習コンテンツ" class="md-header__button md-logo" aria-label="学習コンテンツ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学習コンテンツ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              規制対応とデータ保護
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  ホーム
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../monitoring/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  モニタリング・アラート
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../iac/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Infrastructure as Code
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  セキュリティ対策
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../team-development/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  チーム開発の実践
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学習コンテンツ" class="md-nav__button md-logo" aria-label="学習コンテンツ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学習コンテンツ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホーム
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../monitoring/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モニタリング・アラート
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    モニタリング・アラート
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラート設計
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    アラート設計
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/alert-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザー視点の分類
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/alert-levels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートレベルの決め方
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多層モニタリング
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    多層モニタリング
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/multi-layer-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多層モニタリングとは
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/multi-layer-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    実践例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ダッシュボード設計
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ダッシュボード設計
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/dashboard-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ベストプラクティス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    クラウド環境での考え方
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    クラウド環境での考え方
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/cloud-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    クラウド特有の設計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/resource-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リソース監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    実践編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    実践編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/common-mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    よくある失敗例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iac/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure as Code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基礎知識
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    基礎知識
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/benefits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IaCのメリット
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/declarative-vs-imperative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    宣言的定義 vs 命令的定義
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    実践スキル
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    実践スキル
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/coding-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    コーディング原則
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    テストの重要性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/directory-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ディレクトリ構成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/management-units/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理単位のベストプラクティス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考リンク
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考リンク
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考リンク集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティ対策
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    セキュリティ対策
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本原則
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    基本原則
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティの基本原則
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../risk-and-cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リスク管理とコスト最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    予防的対策
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    予防的対策
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アクセス制御とデータ保護
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-defense/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク防御
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    検知と対応
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    検知と対応
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detection-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    検知と対応
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    継続的なセキュリティ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    継続的なセキュリティ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュアな開発と脆弱性管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    規制対応とデータ保護
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    規制対応とデータ保護
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このページで学ぶこと
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜコンプライアンスが重要か
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="なぜコンプライアンスが重要か">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンプライアンスとは
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンプライアンスが重要な理由
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要な規制の理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要な規制の理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gdpreu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GDPR（EU一般データ保護規則）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日本の個人情報保護法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pci-dsspayment-card-industry-data-security-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCI DSS（Payment Card Industry Data Security Standard）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ保護の原則
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データ保護の原則">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データの分類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ最小化の原則
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的外利用の禁止
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保持期間と削除
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データレジデンシーとデータ主権
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データレジデンシーとデータ主権">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜデータの保存場所が重要か
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リージョン選択の考慮点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        越境データ転送の制約
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWSでのデータレジデンシー対応
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS環境でのコンプライアンス対応
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS環境でのコンプライアンス対応">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        責任共有モデルとコンプライアンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Configによる継続的コンプライアンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Hubによる統合管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監査ログの管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある失敗パターン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある失敗パターン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        チェックリスト対応の罠
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一度きりのコンプライアンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文書と実態の乖離
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        責任範囲の誤解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的なアプローチ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的なアプローチ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンプライアンス対応の進め方
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小規模チームでの対応
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        まとめ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../team-development/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チーム開発の実践
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    チーム開発の実践
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/team-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チームの土台
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    不確実性への対処
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/cross-functional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    領域を超えた協働
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/shift-left/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shift Left
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このページで学ぶこと
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜコンプライアンスが重要か
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="なぜコンプライアンスが重要か">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンプライアンスとは
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンプライアンスが重要な理由
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要な規制の理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要な規制の理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gdpreu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GDPR（EU一般データ保護規則）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日本の個人情報保護法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pci-dsspayment-card-industry-data-security-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCI DSS（Payment Card Industry Data Security Standard）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ保護の原則
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データ保護の原則">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データの分類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ最小化の原則
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目的外利用の禁止
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保持期間と削除
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データレジデンシーとデータ主権
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データレジデンシーとデータ主権">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜデータの保存場所が重要か
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リージョン選択の考慮点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        越境データ転送の制約
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWSでのデータレジデンシー対応
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS環境でのコンプライアンス対応
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS環境でのコンプライアンス対応">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        責任共有モデルとコンプライアンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Configによる継続的コンプライアンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Hubによる統合管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監査ログの管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある失敗パターン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある失敗パターン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        チェックリスト対応の罠
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一度きりのコンプライアンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文書と実態の乖離
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        責任範囲の誤解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的なアプローチ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的なアプローチ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンプライアンス対応の進め方
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小規模チームでの対応
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        まとめ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">規制対応とデータ保護<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>このセクションでは、法規制への対応とデータ保護の考え方について学びます。</p>
+<h2 id="_2">このページで学ぶこと<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>コンプライアンスがなぜ重要かを理解する</li>
+<li>主要な規制（GDPR、個人情報保護法、PCI DSS）の概要を把握する</li>
+<li>データ保護の基本原則を学ぶ</li>
+<li>データレジデンシーとデータ主権の考え方を理解する</li>
+<li>AWS環境でのコンプライアンス対応方法を知る</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">最新情報の確認</p>
+<p>法規制は改正されることがあります。実務での適用にあたっては、以下の公式リソースで最新情報を確認してください。</p>
+<ul>
+<li><strong>GDPR</strong>: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679">EUR-Lex（EU法令データベース）</a></li>
+<li><strong>個人情報保護法</strong>: <a href="https://www.ppc.go.jp/">個人情報保護委員会</a></li>
+<li><strong>PCI DSS</strong>: <a href="https://www.pcisecuritystandards.org/">PCI Security Standards Council</a></li>
+</ul>
+</div>
+<h2 id="_3">なぜコンプライアンスが重要か<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">コンプライアンスとは<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>コンプライアンスとは、法令や業界標準、社内規程などのルールを遵守することです。セキュリティ対策とコンプライアンスは密接に関連していますが、同じものではありません。</p>
+<table>
+<thead>
+<tr>
+<th>観点</th>
+<th>セキュリティ</th>
+<th>コンプライアンス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目的</td>
+<td>システムと情報の保護</td>
+<td>ルールへの適合証明</td>
+</tr>
+<tr>
+<td>基準</td>
+<td>リスクベース</td>
+<td>規制要件ベース</td>
+</tr>
+<tr>
+<td>評価</td>
+<td>継続的な改善</td>
+<td>監査による適合確認</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">セキュリティとコンプライアンスの関係</p>
+<p>セキュリティ対策が十分でもコンプライアンス違反になることがあり、逆にコンプライアンスを満たしていてもセキュリティが不十分なこともあります。両方の視点が必要です。</p>
+</div>
+<h3 id="_5">コンプライアンスが重要な理由<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>法的義務と罰則</strong></p>
+<p>規制違反には厳しい罰則が設けられています。</p>
+<table>
+<thead>
+<tr>
+<th>規制</th>
+<th>最大罰則</th>
+<th>根拠</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GDPR</td>
+<td>全世界年間売上高の4%または2,000万ユーロのいずれか高い方</td>
+<td><a href="https://gdpr-info.eu/art-83-gdpr/">Article 83</a></td>
+</tr>
+<tr>
+<td>個人情報保護法（日本）</td>
+<td>1億円以下の罰金（法人）</td>
+<td><a href="https://www.businesslawyers.jp/practices/1427">2022年改正法</a></td>
+</tr>
+<tr>
+<td>PCI DSS</td>
+<td>カード会社からの取引停止、罰金</td>
+<td><a href="https://www.kiteworks.com/ja/risk-compliance-glossary/pci-dss/">PCI DSSコンプライアンス</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ビジネスへの影響</strong></p>
+<ul>
+<li><strong>顧客との信頼関係</strong>: データ保護は顧客からの信頼の基盤</li>
+<li><strong>取引機会</strong>: 多くの企業がサプライヤーにコンプライアンス証明を要求</li>
+<li><strong>レピュテーション</strong>: 違反の公表による企業イメージの低下</li>
+</ul>
+<h2 id="_6">主要な規制の理解<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="gdpreu">GDPR（EU一般データ保護規則）<a class="headerlink" href="#gdpreu" title="Permanent link">&para;</a></h3>
+<p>GDPRは、EU域内の個人データ保護を目的とした規制です。EU域外の企業であっても、EU居住者のデータを扱う場合は対象となります。</p>
+<p><strong>主な要件</strong></p>
+<table>
+<thead>
+<tr>
+<th>要件</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>適法性の根拠</td>
+<td>データ処理には同意または正当な根拠が必要</td>
+</tr>
+<tr>
+<td>データ主体の権利</td>
+<td>アクセス権、訂正権、削除権（忘れられる権利）、データポータビリティ</td>
+</tr>
+<tr>
+<td>データ保護責任者</td>
+<td>一定規模以上の組織はDPO（Data Protection Officer）の設置が必要</td>
+</tr>
+<tr>
+<td>侵害通知</td>
+<td>72時間以内に監督機関への通知義務</td>
+</tr>
+<tr>
+<td>越境移転</td>
+<td>EU域外へのデータ移転には適切な保護措置が必要</td>
+</tr>
+</tbody>
+</table>
+<p><strong>適用範囲の判断</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>EU居住者のデータを扱う？
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├─ Yes → GDPRの対象となる可能性が高い
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   └─ EU向けにサービスを提供している？
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│       ├─ Yes → 確実に対象
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│       └─ No → 個別判断が必要
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└─ No → GDPRの対象外
+</code></pre></div>
+<h3 id="_7">日本の個人情報保護法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>日本国内で個人情報を取り扱う事業者に適用される法律です。2022年の改正で罰則強化や越境移転規制の厳格化が行われました。</p>
+<p><strong>主な要件</strong></p>
+<table>
+<thead>
+<tr>
+<th>要件</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>利用目的の特定・通知</td>
+<td>取得時に利用目的を明示</td>
+</tr>
+<tr>
+<td>安全管理措置</td>
+<td>組織的・人的・物理的・技術的安全管理措置の実施</td>
+</tr>
+<tr>
+<td>第三者提供の制限</td>
+<td>原則として本人同意が必要</td>
+</tr>
+<tr>
+<td>漏えい等報告</td>
+<td>一定の漏えい等は個人情報保護委員会への報告と本人通知が必要</td>
+</tr>
+<tr>
+<td>越境移転</td>
+<td>外国への提供には本人同意または基準適合体制が必要</td>
+</tr>
+</tbody>
+</table>
+<p><strong>個人情報の定義</strong></p>
+<p>個人情報とは、生存する個人に関する情報で、以下のいずれかに該当するものです：</p>
+<ul>
+<li>氏名、生年月日等により特定の個人を識別できるもの</li>
+<li>個人識別符号（マイナンバー、運転免許証番号等）が含まれるもの</li>
+</ul>
+<h3 id="pci-dsspayment-card-industry-data-security-standard">PCI DSS（Payment Card Industry Data Security Standard）<a class="headerlink" href="#pci-dsspayment-card-industry-data-security-standard" title="Permanent link">&para;</a></h3>
+<p>クレジットカード情報を取り扱う事業者に適用される業界標準です。</p>
+<p><strong>12の要件（概要）</strong></p>
+<table>
+<thead>
+<tr>
+<th>カテゴリ</th>
+<th>要件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ネットワークセキュリティ</td>
+<td>ファイアウォール設置、デフォルトパスワード変更</td>
+</tr>
+<tr>
+<td>カード会員データ保護</td>
+<td>保存データの保護、送信データの暗号化</td>
+</tr>
+<tr>
+<td>脆弱性管理</td>
+<td>ウイルス対策、セキュアな開発</td>
+</tr>
+<tr>
+<td>アクセス制御</td>
+<td>業務上必要な範囲に制限、一意のID付与、物理アクセス制限</td>
+</tr>
+<tr>
+<td>監視とテスト</td>
+<td>ネットワーク監視、定期的なテスト</td>
+</tr>
+<tr>
+<td>ポリシー維持</td>
+<td>情報セキュリティポリシーの維持</td>
+</tr>
+</tbody>
+</table>
+<p><strong>準拠レベル</strong></p>
+<p>カード取引量に応じて準拠レベルが異なります（以下はVisaの基準例。カードブランドにより異なる場合があります）。</p>
+<table>
+<thead>
+<tr>
+<th>レベル</th>
+<th>年間取引量</th>
+<th>要件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>レベル1</td>
+<td>600万件以上</td>
+<td>QSA（認定審査機関）による年次監査</td>
+</tr>
+<tr>
+<td>レベル2</td>
+<td>100万〜600万件</td>
+<td>自己問診（SAQ）+ 四半期スキャン</td>
+</tr>
+<tr>
+<td>レベル3</td>
+<td>2万〜100万件</td>
+<td>自己問診（SAQ）+ 四半期スキャン</td>
+</tr>
+<tr>
+<td>レベル4</td>
+<td>2万件未満</td>
+<td>自己問診（SAQ）推奨</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">PCI DSSの範囲縮小</p>
+<p>カード情報を自社で保持せず、決済代行サービス（Stripe等）を利用することで、PCI DSSの準拠範囲を大幅に縮小できます。これは「非保持化」と呼ばれ、トークナイゼーション技術により実現されます。詳細は<a href="https://www.jcdsc.org/topics/vol02.php">日本カード情報セキュリティ協議会</a>や<a href="https://stripe.com/resources/more/payment-tokenization-101">Stripe のトークン化解説</a>を参照してください。</p>
+</div>
+<h2 id="_8">データ保護の原則<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">データの分類<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>すべてのデータを同じレベルで保護することは非効率です。データを分類し、重要度に応じた保護を行います。</p>
+<p><strong>分類の例</strong></p>
+<table>
+<thead>
+<tr>
+<th>分類</th>
+<th>内容例</th>
+<th>保護レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>機密</td>
+<td>個人情報、カード情報、認証情報</td>
+<td>暗号化必須、アクセス厳格制限</td>
+</tr>
+<tr>
+<td>社外秘</td>
+<td>財務データ、契約情報、内部文書</td>
+<td>アクセス制限、監査ログ</td>
+</tr>
+<tr>
+<td>内部</td>
+<td>業務マニュアル、社内連絡</td>
+<td>基本的なアクセス制御</td>
+</tr>
+<tr>
+<td>公開</td>
+<td>製品情報、プレスリリース</td>
+<td>改ざん防止のみ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">データ最小化の原則<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>必要以上のデータを収集・保持しないという原則です。</p>
+<p><strong>実践ポイント</strong></p>
+<ul>
+<li>収集するデータは目的達成に必要な最小限に</li>
+<li>不要になったデータは適時削除</li>
+<li>ログに含める情報も必要最小限に</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 悪い例：必要以上の情報をログに記録</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User login: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">, password: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="si">}</span><span class="s2">, credit_card: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">card_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 良い例：必要な情報のみ記録</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User login: user_id=</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_11">目的外利用の禁止<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>収集時に明示した目的以外でデータを使用してはいけません。</p>
+<p><strong>よくある違反パターン</strong></p>
+<ul>
+<li>マーケティング目的で収集したメールアドレスを第三者に販売</li>
+<li>サポート目的で取得した情報を営業活動に利用</li>
+<li>分析目的で収集したデータを個人特定可能な形で外部共有</li>
+</ul>
+<h3 id="_12">保持期間と削除<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>データは必要な期間のみ保持し、不要になったら削除します。</p>
+<p><strong>保持期間の決定要因</strong></p>
+<table>
+<thead>
+<tr>
+<th>要因</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>法的要件</td>
+<td>税務関連書類は7年以上保存（欠損金がある場合は10年）</td>
+</tr>
+<tr>
+<td>契約要件</td>
+<td>契約終了後○年間保持</td>
+</tr>
+<tr>
+<td>業務要件</td>
+<td>分析に必要な期間</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">削除の実装</p>
+<p>データ削除は論理削除（フラグを立てる）ではなく、物理削除が求められることがあります。バックアップからの復元も考慮した削除戦略が必要です。</p>
+</div>
+<h2 id="_13">データレジデンシーとデータ主権<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">なぜデータの保存場所が重要か<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>データの物理的な保存場所によって、適用される法律や規制が変わります。</p>
+<p><strong>データレジデンシー</strong>: データが物理的に保存される地理的な場所</p>
+<p><strong>データ主権</strong>: データに対してどの国の法律が適用されるか</p>
+<h3 id="_15">リージョン選択の考慮点<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>AWSでリージョンを選択する際、以下を考慮します。</p>
+<table>
+<thead>
+<tr>
+<th>考慮点</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>法的要件</td>
+<td>特定の国にデータを保存する義務があるか</td>
+</tr>
+<tr>
+<td>レイテンシー</td>
+<td>ユーザーに近いリージョンか</td>
+</tr>
+<tr>
+<td>サービス可用性</td>
+<td>必要なAWSサービスが利用可能か</td>
+</tr>
+<tr>
+<td>コスト</td>
+<td>リージョンによって価格が異なる</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">越境データ転送の制約<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>多くの規制では、国境を越えたデータ転送に制限を設けています。</p>
+<p><strong>GDPRの場合</strong></p>
+<p>EU域外へのデータ転送には、以下のいずれかが必要です：</p>
+<ul>
+<li>十分性認定を受けた国への転送（日本とEUは相互に認定済み）</li>
+<li>標準契約条項（SCC）の締結</li>
+<li>拘束的企業準則（BCR）の承認</li>
+</ul>
+<p><strong>日本の個人情報保護法の場合</strong></p>
+<p>外国への個人データ提供には、以下のいずれかが必要です：</p>
+<ul>
+<li>本人の同意</li>
+<li>基準適合体制を整備した事業者への提供</li>
+<li>日本と同等の保護水準を有する国への提供</li>
+</ul>
+<h3 id="aws">AWSでのデータレジデンシー対応<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h3>
+<p><strong>リージョン制限の実装（SCP）</strong></p>
+<p>AWS Organizationsのサービスコントロールポリシー（SCP）を使用して、組織全体でリージョンを制限できます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deny&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;Condition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;StringNotEquals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">          </span><span class="nt">&quot;aws:RequestedRegion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ap-northeast-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ap-northeast-3&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">グローバルサービスの考慮</p>
+<p>上記のSCPはIAM、CloudFront、Route 53等のグローバルサービスもブロックする可能性があります。実運用では、グローバルサービスを除外する条件（<code>NotAction</code> や特定サービスの除外）を追加する必要があります。詳細は<a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html#example-scp-deny-region">AWS公式ドキュメント</a>を参照してください。</p>
+</div>
+<p><strong>AWS Control Towerのリージョン拒否</strong></p>
+<p>AWS Control Towerを使用すると、組織全体で許可するリージョンを制御できます。</p>
+<h2 id="aws_1">AWS環境でのコンプライアンス対応<a class="headerlink" href="#aws_1" title="Permanent link">&para;</a></h2>
+<h3 id="_17">責任共有モデルとコンプライアンス<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>AWSの責任共有モデルはコンプライアンスにも適用されます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌─────────────────────────────────────────────────────────┐
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│              お客様の責任（クラウド内のセキュリティ）          │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│  ・データの分類と保護                                      │
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│  ・アクセス制御の設定                                      │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│  ・アプリケーションレベルのコンプライアンス                   │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│  ・監査ログの管理                                         │
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>├─────────────────────────────────────────────────────────┤
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│                 AWSの責任（クラウドのセキュリティ）          │
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│  ・物理インフラのセキュリティ                               │
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│  ・ハイパーバイザーの管理                                  │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│  ・AWS サービスのコンプライアンス認証取得                    │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>└─────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="aws-artifact">AWS Artifact<a class="headerlink" href="#aws-artifact" title="Permanent link">&para;</a></h3>
+<p>AWS Artifactは、AWSのコンプライアンスレポートや契約書にアクセスするためのサービスです。</p>
+<p><strong>利用可能なドキュメント</strong></p>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOC レポート</td>
+<td>AWSの統制に関する第三者監査レポート</td>
+</tr>
+<tr>
+<td>PCI DSS</td>
+<td>PCI DSS準拠の証明</td>
+</tr>
+<tr>
+<td>ISO 認証</td>
+<td>ISO 27001等の認証書</td>
+</tr>
+<tr>
+<td>契約書</td>
+<td>BAA（HIPAA）、DPA（GDPR）等</td>
+</tr>
+</tbody>
+</table>
+<p><strong>活用方法</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>監査対応での活用例：
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1. 監査人から「AWSのセキュリティ統制の証拠」を求められる
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>2. AWS ArtifactからSOC 2レポートをダウンロード
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>3. 監査人に提出し、AWSインフラ部分の統制を説明
+</code></pre></div>
+<h3 id="aws-config">AWS Configによる継続的コンプライアンス<a class="headerlink" href="#aws-config" title="Permanent link">&para;</a></h3>
+<p>AWS Configを使用して、リソースが規制要件に準拠しているかを継続的にチェックできます。</p>
+<p><strong>コンフォーマンスパック</strong></p>
+<p>AWSが提供する事前定義されたルールセットです。</p>
+<table>
+<thead>
+<tr>
+<th>パック名</th>
+<th>対象規制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operational Best Practices for PCI DSS</td>
+<td>PCI DSS</td>
+</tr>
+<tr>
+<td>Operational Best Practices for NIST CSF</td>
+<td>NIST CSF</td>
+</tr>
+<tr>
+<td>Operational Best Practices for CIS</td>
+<td>CIS Benchmark</td>
+</tr>
+</tbody>
+</table>
+<p><strong>カスタムルールの例</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># S3バケットの暗号化チェック</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2010-09-09&#39;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">Resources</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">S3BucketEncryptionRule</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Config::ConfigRule</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="nt">ConfigRuleName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3-bucket-server-side-encryption-enabled</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="nt">Source</span><span class="p">:</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="nt">Owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="nt">SourceIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED</span>
+</code></pre></div>
+<h3 id="security-hub">Security Hubによる統合管理<a class="headerlink" href="#security-hub" title="Permanent link">&para;</a></h3>
+<p>AWS Security Hubは、複数のセキュリティサービスの検出結果を統合し、コンプライアンス状況を可視化します。</p>
+<p><strong>セキュリティ標準</strong></p>
+<table>
+<thead>
+<tr>
+<th>標準</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS 基礎セキュリティのベストプラクティス</td>
+<td>AWS推奨のセキュリティ設定</td>
+</tr>
+<tr>
+<td>CIS AWS Foundations Benchmark</td>
+<td>CISによるベストプラクティス</td>
+</tr>
+<tr>
+<td>PCI DSS</td>
+<td>PCI DSS関連のチェック</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">監査ログの管理<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>コンプライアンスには、適切な監査ログの保持が不可欠です。</p>
+<p><strong>CloudTrailの設定</strong></p>
+<table>
+<thead>
+<tr>
+<th>設定項目</th>
+<th>推奨値</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>マルチリージョン</td>
+<td>有効</td>
+<td>すべてのリージョンの操作を記録</td>
+</tr>
+<tr>
+<td>ログファイル検証</td>
+<td>有効</td>
+<td>ログの改ざん検知</td>
+</tr>
+<tr>
+<td>S3バケット暗号化</td>
+<td>有効</td>
+<td>ログデータの保護</td>
+</tr>
+<tr>
+<td>ログ保持期間</td>
+<td>規制要件に応じて</td>
+<td>多くの規制で1年以上を要求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ログの改ざん防止</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>CloudTrail → S3バケット
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>              ├─ バケットポリシーで削除禁止
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>              ├─ オブジェクトロック（WORM）
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>              └─ 別アカウントへのレプリケーション
+</code></pre></div>
+<h2 id="_19">よくある失敗パターン<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="_20">チェックリスト対応の罠<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>: 規制のチェックリストを形式的に満たすことだけに集中し、実質的なセキュリティが疎かになる。</p>
+<p><strong>対策</strong>:</p>
+<ul>
+<li>チェックリストは最低限の基準と捉える</li>
+<li>リスクベースで追加対策を検討</li>
+<li>「なぜこの要件があるのか」を理解する</li>
+</ul>
+<h3 id="_21">一度きりのコンプライアンス<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>: 監査時だけ対応し、日常的にはコンプライアンスを意識しない。</p>
+<p><strong>対策</strong>:</p>
+<ul>
+<li>AWS Configで継続的なチェックを自動化</li>
+<li>定期的なレビューをプロセスに組み込む</li>
+<li>コンプライアンス状況のダッシュボード化</li>
+</ul>
+<h3 id="_22">文書と実態の乖離<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>: ポリシー文書は立派だが、実際の運用が伴っていない。</p>
+<p><strong>対策</strong>:</p>
+<ul>
+<li>ポリシーは実行可能な内容に</li>
+<li>定期的な内部監査で乖離を検出</li>
+<li>自動化でポリシーを強制</li>
+</ul>
+<h3 id="_23">責任範囲の誤解<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>: 「AWSを使っているからコンプライアンスは大丈夫」と誤解する。</p>
+<p><strong>対策</strong>:</p>
+<ul>
+<li>責任共有モデルを正しく理解</li>
+<li>お客様責任の範囲を明確化</li>
+<li>AWSの認証はインフラ部分のみであることを認識</li>
+</ul>
+<h2 id="_24">実践的なアプローチ<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<h3 id="_25">コンプライアンス対応の進め方<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>1. 要件の特定
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>   └─ 適用される規制を洗い出す
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>2. ギャップ分析
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   └─ 現状と要件の差分を特定
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>3. 対策の優先順位付け
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>   └─ リスクと影響度で優先順位決定
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>4. 実装
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>   └─ 技術的・組織的対策の実施
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>5. 継続的モニタリング
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>   └─ AWS Config、Security Hubで監視
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>6. 定期レビュー
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>   └─ 規制の変更、新たなリスクへの対応
+</code></pre></div>
+<h3 id="_26">小規模チームでの対応<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>すべての規制に完全対応することは、リソースの限られた小規模チームには困難です。</p>
+<p><strong>優先順位の考え方</strong></p>
+<ol>
+<li><strong>法的義務</strong>: 違反すると罰則があるもの（個人情報保護法等）</li>
+<li><strong>契約義務</strong>: 顧客との契約で求められるもの</li>
+<li><strong>業界標準</strong>: 準拠が期待されるもの（ISO 27001等）</li>
+</ol>
+<p><strong>効率化のポイント</strong></p>
+<ul>
+<li>マネージドサービスの活用（責任範囲の縮小）</li>
+<li>自動化ツールの活用（AWS Config、Security Hub）</li>
+<li>外部専門家の活用（監査時のみ等）</li>
+</ul>
+<h2 id="_27">まとめ<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>ポイント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>コンプライアンスの重要性</td>
+<td>法的義務、ビジネス機会、信頼の維持</td>
+</tr>
+<tr>
+<td>主要規制</td>
+<td>GDPR、個人情報保護法、PCI DSS等</td>
+</tr>
+<tr>
+<td>データ保護原則</td>
+<td>分類、最小化、目的制限、保持期間管理</td>
+</tr>
+<tr>
+<td>データレジデンシー</td>
+<td>保存場所と適用法の関係を理解</td>
+</tr>
+<tr>
+<td>AWS活用</td>
+<td>Artifact、Config、Security Hubで効率化</td>
+</tr>
+<tr>
+<td>継続性</td>
+<td>一度きりでなく継続的な取り組みが必要</td>
+</tr>
+</tbody>
+</table>
+<p>コンプライアンスは「やらなければならないこと」ですが、適切に取り組めば組織のセキュリティ向上にもつながります。形式的な対応ではなく、本質を理解した上で効率的に取り組みましょう。</p>
+<p><a class="md-button" href="../basic-principles/">セキュリティの基本原則に戻る ←</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

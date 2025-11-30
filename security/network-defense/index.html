@@ -1,0 +1,3429 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="エンジニアのための実践的な学習資料">
+      
+      
+        <meta name="author" content="Your Team Name">
+      
+      
+      
+        <link rel="prev" href="../access-control/">
+      
+      
+        <link rel="next" href="../detection-response/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>ネットワーク防御 - 学習コンテンツ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="学習コンテンツ" class="md-header__button md-logo" aria-label="学習コンテンツ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学習コンテンツ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ネットワーク防御
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  ホーム
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../monitoring/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  モニタリング・アラート
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../iac/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Infrastructure as Code
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  セキュリティ対策
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../team-development/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  チーム開発の実践
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学習コンテンツ" class="md-nav__button md-logo" aria-label="学習コンテンツ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    学習コンテンツ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホーム
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../monitoring/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モニタリング・アラート
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    モニタリング・アラート
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラート設計
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    アラート設計
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/alert-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ユーザー視点の分類
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/alert-levels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートレベルの決め方
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多層モニタリング
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    多層モニタリング
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/multi-layer-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多層モニタリングとは
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/multi-layer-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    実践例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ダッシュボード設計
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ダッシュボード設計
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/dashboard-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ベストプラクティス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    クラウド環境での考え方
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    クラウド環境での考え方
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/cloud-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    クラウド特有の設計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/resource-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リソース監視
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    実践編
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    実践編
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/common-mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    よくある失敗例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iac/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure as Code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基礎知識
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    基礎知識
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/benefits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IaCのメリット
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/declarative-vs-imperative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    宣言的定義 vs 命令的定義
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    実践スキル
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    実践スキル
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/coding-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    コーディング原則
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    テストの重要性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/directory-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ディレクトリ構成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/management-units/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    管理単位のベストプラクティス
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考リンク
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考リンク
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考リンク集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティ対策
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    セキュリティ対策
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本原則
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    基本原則
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュリティの基本原則
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../risk-and-cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リスク管理とコスト最適化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    予防的対策
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    予防的対策
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アクセス制御とデータ保護
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク防御
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク防御
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このページで学ぶこと
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ネットワーク分離の考え方
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワーク分離の考え方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜネットワークを分離するのか
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-vs-private" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public vs Private サブネットの使い分け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マイクロセグメンテーション
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ゼロトラストとネットワーク分離
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイアウォール設計
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイアウォール設計">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ステートフル vs ステートレス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-group-vs-network-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group vs Network ACL の使い分け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最小権限の原則をネットワークに適用する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インバウンドとアウトバウンド両方を考える
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーション層の防御
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アプリケーション層の防御">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜネットワーク層だけでは不十分か
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wafweb-application-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAF（Web Application Firewall）の役割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ddos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DDoS攻撃への対策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レート制限の重要性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS環境での実装パターン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS環境での実装パターン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC設計の基本原則
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpcprivatelink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPCエンドポイントとPrivateLink
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インターネット接続の設計パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある失敗パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        まとめ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    検知と対応
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    検知と対応
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detection-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    検知と対応
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    継続的なセキュリティ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    継続的なセキュリティ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セキュアな開発と脆弱性管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    規制対応とデータ保護
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../team-development/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チーム開発の実践
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    チーム開発の実践
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/team-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チームの土台
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    不確実性への対処
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/cross-functional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    領域を超えた協働
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../team-development/shift-left/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shift Left
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このページで学ぶこと
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ネットワーク分離の考え方
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワーク分離の考え方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜネットワークを分離するのか
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-vs-private" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public vs Private サブネットの使い分け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マイクロセグメンテーション
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ゼロトラストとネットワーク分離
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイアウォール設計
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイアウォール設計">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ステートフル vs ステートレス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-group-vs-network-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group vs Network ACL の使い分け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最小権限の原則をネットワークに適用する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インバウンドとアウトバウンド両方を考える
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーション層の防御
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アプリケーション層の防御">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜネットワーク層だけでは不十分か
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wafweb-application-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAF（Web Application Firewall）の役割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ddos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DDoS攻撃への対策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レート制限の重要性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS環境での実装パターン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS環境での実装パターン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC設計の基本原則
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpcprivatelink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPCエンドポイントとPrivateLink
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インターネット接続の設計パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある失敗パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        まとめ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">ネットワーク防御<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>このセクションでは、ネットワーク層での多層的な防御の考え方について学びます。</p>
+<h2 id="_2">このページで学ぶこと<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ネットワーク分離の目的と設計原則</li>
+<li>ファイアウォールの種類と適切な使い分け</li>
+<li>アプリケーション層での防御の必要性</li>
+<li>AWS環境での実践的な設計パターン</li>
+</ul>
+<hr />
+<h2 id="_3">ネットワーク分離の考え方<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">なぜネットワークを分離するのか<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>ネットワーク分離の目的は「<strong>攻撃の影響範囲を限定する</strong>」ことです。</p>
+<p>すべてのシステムが同一ネットワーク上にある場合、1つのシステムが侵害されると、攻撃者はネットワーク内を自由に移動（ラテラルムーブメント）できます。ネットワークを分離することで：</p>
+<ul>
+<li><strong>侵害の封じ込め</strong>: 攻撃者の移動範囲を制限</li>
+<li><strong>重要システムの保護</strong>: データベースや認証サーバーを外部から隔離</li>
+<li><strong>監視の効率化</strong>: セグメント間の通信を監視ポイントとして活用</li>
+</ul>
+<h3 id="public-vs-private">Public vs Private サブネットの使い分け<a class="headerlink" href="#public-vs-private" title="Permanent link">&para;</a></h3>
+<p>ネットワーク分離の最も基本的なパターンです。</p>
+<table>
+<thead>
+<tr>
+<th>サブネット</th>
+<th>特徴</th>
+<th>配置するもの</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public</td>
+<td>インターネットと直接通信可能</td>
+<td>ロードバランサー、踏み台サーバー、NAT Gateway</td>
+</tr>
+<tr>
+<td>Private</td>
+<td>インターネットから直接アクセス不可</td>
+<td>アプリケーションサーバー、データベース、内部API</td>
+</tr>
+</tbody>
+</table>
+<p><strong>原則: インターネットに公開する必要がないものはPrivateサブネットに配置する</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>インターネット
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>     │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>     ▼
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>┌─────────────────────────────────┐
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  Public Subnet                  │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  ・ALB（ロードバランサー）      │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└─────────────────────────────────┘
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>     │（内部通信のみ）
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>     ▼
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>┌─────────────────────────────────┐
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  Private Subnet                 │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  ・EC2/ECS（アプリケーション）  │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  ・RDS（データベース）          │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  ・ElastiCache                  │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>└─────────────────────────────────┘
+</code></pre></div>
+<h3 id="_5">マイクロセグメンテーション<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>従来の境界防御（Perimeter Security）では、ネットワークの「内側」と「外側」を分ける境界を設けていました。しかし、一度境界を突破されると内部は無防備になります。</p>
+<p><strong>マイクロセグメンテーション</strong>は、より細かい単位でネットワークを分離する考え方です：</p>
+<ul>
+<li>アプリケーションごとに分離</li>
+<li>データの機密性レベルごとに分離</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">環境分離について</p>
+<p>開発・ステージング・本番などの環境分離は、AWSではアカウントレベルでの分離が推奨されています（AWS Organizations、Control Tower等）。マイクロセグメンテーションは主に同一環境内での細かい分離を指します。</p>
+</div>
+<p><strong>AWSでの実現方法:</strong></p>
+<p>AWSでマイクロセグメンテーションを実現するには、主に2つのアプローチがあります。</p>
+<p><strong>方法1: Security Groupによる制御（同一サブネット内）</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Private Subnet
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── Webアプリケーション (web-app-sg: ALBからの80/443のみ許可)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── APIサーバー (api-sg: web-app-sgからのみ許可)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└── データベース (db-sg: api-sgからの3306のみ許可)
+</code></pre></div>
+<p>同一サブネット内でもSecurity Groupで通信を制御できます。シンプルな構成で、サブネット数を抑えられます。</p>
+<p><strong>方法2: サブネット分離 + Security Group（より厳密な分離）</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>VPC: 本番環境
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── Private Subnet: Webアプリケーション層
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   └── web-app-sg（ALBからの80/443のみ許可）
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── Private Subnet: APIサーバー層
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   └── api-sg（web-app-sgからのみ許可）
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>└── Private Subnet: データベース層
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    └── db-sg（api-sgからの3306のみ許可）
+</code></pre></div>
+<p>サブネットを分離することで、Network ACLによる追加の制御や、ルートテーブルによる経路制御も可能になります。</p>
+<p>どちらの方法でも、各層は必要な通信のみを許可し、データベースはAPIサーバーからしかアクセスできません。</p>
+<h3 id="_6">ゼロトラストとネットワーク分離<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>ゼロトラストの考え方では「ネットワークの内側にいる＝信頼できる」という前提を捨てます。</p>
+<p>しかし、これはネットワーク分離が不要という意味ではありません。<strong>ゼロトラストとネットワーク分離は補完関係</strong>にあります：</p>
+<ul>
+<li><strong>ネットワーク分離</strong>: 攻撃の到達範囲を物理的・論理的に制限</li>
+<li><strong>ゼロトラスト</strong>: 到達できたとしてもアクセスには認証・認可が必要</li>
+</ul>
+<p>両方を組み合わせることで、多層的な防御（Defense in Depth）を実現します。</p>
+<hr />
+<h2 id="_7">ファイアウォール設計<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="vs">ステートフル vs ステートレス<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<p>ファイアウォールには大きく2つの方式があります。</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>特徴</th>
+<th>AWS例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ステートフル</strong></td>
+<td>接続状態を追跡。戻りの通信は自動許可</td>
+<td>Security Group</td>
+</tr>
+<tr>
+<td><strong>ステートレス</strong></td>
+<td>各パケットを独立して評価。戻りも明示的に許可が必要</td>
+<td>Network ACL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ステートフルの動作:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. 内部サーバー → 外部API (アウトバウンド許可)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. 外部API → 内部サーバー (戻り通信 → 自動許可)
+</code></pre></div></p>
+<p><strong>ステートレスの動作:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. 内部サーバー → 外部API (アウトバウンドルールで許可)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>2. 外部API → 内部サーバー (インバウンドルールで明示的に許可が必要)
+</code></pre></div></p>
+<h3 id="security-group-vs-network-acl">Security Group vs Network ACL の使い分け<a class="headerlink" href="#security-group-vs-network-acl" title="Permanent link">&para;</a></h3>
+<p>AWSでは両方を適材適所で使い分けます。</p>
+<table>
+<thead>
+<tr>
+<th>観点</th>
+<th>Security Group</th>
+<th>Network ACL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>適用対象</td>
+<td>ENI（リソース単位）</td>
+<td>サブネット単位</td>
+</tr>
+<tr>
+<td>方式</td>
+<td>ステートフル</td>
+<td>ステートレス</td>
+</tr>
+<tr>
+<td>ルール</td>
+<td>許可のみ</td>
+<td>許可と拒否</td>
+</tr>
+<tr>
+<td>評価順序</td>
+<td>すべてのルールを評価</td>
+<td>番号順に評価、最初にマッチしたルールを適用</td>
+</tr>
+<tr>
+<td>主な用途</td>
+<td>リソース間のアクセス制御</td>
+<td>サブネット境界での粗いフィルタリング</td>
+</tr>
+</tbody>
+</table>
+<p><strong>使い分けの指針:</strong></p>
+<ul>
+<li><strong>Security Group</strong>: メインのアクセス制御。リソースごとに細かく設定</li>
+<li><strong>Network ACL</strong>: 追加の防御層。特定IPの一括拒否など、サブネット単位での制御</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Network ACL（サブネット境界）
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  └── 悪意のあるIPアドレス帯を一括拒否
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Security Group（リソース単位）
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  └── アプリケーション間の細かいアクセス制御
+</code></pre></div>
+<h3 id="_8">最小権限の原則をネットワークに適用する<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>アクセス制御の最小権限の原則は、ネットワークにも適用されます。</p>
+<p><strong>アンチパターン:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>❌ Security Group:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   Inbound: 0.0.0.0/0 からのすべてのトラフィックを許可
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   Outbound: 0.0.0.0/0 へのすべてのトラフィックを許可
+</code></pre></div>
+<p><strong>推奨パターン:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>✅ Security Group (web-app-sg):
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>   Inbound: alb-sg からの 8080 のみ許可
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   Outbound: api-sg への 443、db-sg への 3306 のみ許可
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Security Groupの参照機能を活用する</p>
+<p>IPアドレスではなく、Security Groupを参照することで：</p>
+<ul>
+<li>IPアドレスの変更に強くなる</li>
+<li>オートスケーリングに対応できる</li>
+<li>意図が明確になる（「このSGを持つリソースからのみ許可」）</li>
+</ul>
+</div>
+<h3 id="_9">インバウンドとアウトバウンド両方を考える<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>インバウンド（外部→内部）の制限は意識しやすいですが、<strong>アウトバウンド（内部→外部）の制限も重要</strong>です。</p>
+<p>アウトバウンドを制限する理由：</p>
+<ul>
+<li><strong>データ漏洩の防止</strong>: 侵害されたサーバーから外部へのデータ送信を制限</li>
+<li><strong>C2通信のブロック</strong>: マルウェアの指令サーバーへの通信を制限</li>
+<li><strong>意図しない依存の発見</strong>: 本来不要な外部通信を可視化</li>
+</ul>
+<p><strong>AWSでの例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Private Subnet のサーバー:
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  Outbound:
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    ✅ VPCエンドポイント経由でS3へアクセス
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    ✅ VPCエンドポイント経由でSecrets Managerへアクセス
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    ✅ NAT Gateway経由で特定のAPIエンドポイントへアクセス
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    ❌ その他のインターネット通信は拒否
+</code></pre></div>
+<hr />
+<h2 id="_10">アプリケーション層の防御<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">OSI参照モデルについて</p>
+<p>このセクションではL3/L4/L7などの表記が登場します。これは<a href="https://ja.wikipedia.org/wiki/OSI%E5%8F%82%E7%85%A7%E3%83%A2%E3%83%87%E3%83%AB">OSI参照モデル</a>のレイヤーを指します。L3はネットワーク層（IP）、L4はトランスポート層（TCP/UDP）、L7はアプリケーション層（HTTP等）です。</p>
+</div>
+<h3 id="_11">なぜネットワーク層だけでは不十分か<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>ネットワークファイアウォールは、主にIPアドレスとポート番号で通信を制御します。しかし、正規のポート（80/443）を通る攻撃は検知できません。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>正規のHTTPSリクエストに見える攻撃:
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>POST /api/users HTTP/1.1
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Content-Type: application/json
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>{&quot;name&quot;: &quot;&#39;; DROP TABLE users; --&quot;}  ← SQLインジェクション
+</code></pre></div>
+<p>この攻撃は443ポートの正規HTTPSトラフィックなので、ネットワークファイアウォールでは防げません。</p>
+<h3 id="wafweb-application-firewall">WAF（Web Application Firewall）の役割<a class="headerlink" href="#wafweb-application-firewall" title="Permanent link">&para;</a></h3>
+<p>WAFはアプリケーション層（L7）で通信の中身を検査します。</p>
+<p><strong>WAFが検知・防御できる攻撃例:</strong></p>
+<table>
+<thead>
+<tr>
+<th>攻撃</th>
+<th>概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQLインジェクション</td>
+<td>SQL文を注入してデータベースを操作</td>
+</tr>
+<tr>
+<td>クロスサイトスクリプティング（XSS）</td>
+<td>悪意のあるスクリプトを埋め込む</td>
+</tr>
+<tr>
+<td>パストラバーサル</td>
+<td><code>../</code> を使って意図しないファイルにアクセス</td>
+</tr>
+<tr>
+<td>HTTPリクエストスマグリング</td>
+<td>HTTPパーサーの差異を悪用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AWS WAFの構成例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>インターネット → AWS WAF → ALB → アプリケーション
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>                   │
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>                   └── マネージドルールで既知の攻撃パターンをブロック
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>                       ・AWS マネージドルール（Core rule set）
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>                       ・SQLインジェクション対策ルール
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>                       ・カスタムルール（ビジネスロジック保護）
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">WAFは万能ではない</p>
+<p>WAFはシグネチャベースの検知が中心です。以下の点に注意：</p>
+<ul>
+<li><strong>新しい攻撃手法</strong>: シグネチャが更新されるまで検知できない</li>
+<li><strong>ビジネスロジックの脆弱性</strong>: 正規のリクエストに見える不正操作は検知困難</li>
+<li><strong>暗号化された通信の内部</strong>: TLS終端前の通信は検査できない</li>
+</ul>
+<p>WAFは<strong>多層防御の一つ</strong>として位置づけ、アプリケーション側でのバリデーションも必須です。</p>
+</div>
+<h3 id="ddos">DDoS攻撃への対策<a class="headerlink" href="#ddos" title="Permanent link">&para;</a></h3>
+<p>DDoS（Distributed Denial of Service）攻撃は、大量のリクエストでサービスを過負荷にする攻撃です。</p>
+<p><strong>DDoS攻撃の種類:</strong></p>
+<table>
+<thead>
+<tr>
+<th>レイヤー</th>
+<th>攻撃例</th>
+<th>対策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L3/L4（ネットワーク層）</td>
+<td>SYN Flood、UDP Flood</td>
+<td>AWS Shield、ネットワークACL</td>
+</tr>
+<tr>
+<td>L7（アプリケーション層）</td>
+<td>HTTP Flood、Slowloris</td>
+<td>WAF、レート制限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AWSでの防御:</strong></p>
+<ul>
+<li><strong>AWS Shield Standard</strong>: すべてのAWSリソースに無料で適用。L3/L4攻撃を自動防御</li>
+<li><strong>AWS Shield Advanced</strong>: より高度な保護、DDoSコスト保護、専門チームのサポート</li>
+<li><strong>CloudFront + WAF</strong>: エッジでの防御によりオリジンへの負荷を軽減</li>
+</ul>
+<h3 id="_12">レート制限の重要性<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>レート制限は、単位時間あたりのリクエスト数を制限する仕組みです。</p>
+<p><strong>レート制限の効果:</strong></p>
+<ul>
+<li><strong>DDoS緩和</strong>: 異常な量のリクエストを制限</li>
+<li><strong>ブルートフォース対策</strong>: ログイン試行回数を制限</li>
+<li><strong>API乱用防止</strong>: 過剰なAPI呼び出しを制限</li>
+<li><strong>コスト管理</strong>: 意図しない大量アクセスによるコスト増を防止</li>
+</ul>
+<p><strong>AWS WAFでのレート制限例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ルール: 同一IPから5分間で1000リクエストを超えたらブロック
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>追加条件の例:
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>- /login エンドポイントは5分間で10リクエストまで
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>- /api/search は5分間で100リクエストまで
+</code></pre></div>
+<hr />
+<h2 id="aws">AWS環境での実装パターン<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h2>
+<h3 id="vpc">VPC設計の基本原則<a class="headerlink" href="#vpc" title="Permanent link">&para;</a></h3>
+<p><strong>1. 適切なCIDRブロックの設計</strong></p>
+<p>CIDRブロックのサイズは要件に応じて決定します。AWSは具体的な推奨サイズを明示していませんが、以下のガイドラインを示しています：</p>
+<ul>
+<li><strong>VPC</strong>: <code>/16</code>（65,536アドレス）〜 <code>/28</code>（16アドレス）の範囲で設定可能</li>
+<li><strong>サブネット</strong>: 各サブネットで5個のIPアドレスがAWSに予約される</li>
+<li>成長予測が不明な場合は大きめを選択（後からの再構成を避けるため）</li>
+<li>ただし過度に大きいとピアリング時に重複問題が発生する可能性</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">CIDR設計のポイント</p>
+<ul>
+<li>将来の拡張を見越して余裕を持ったサイズに</li>
+<li>オンプレミスや他VPCとのピアリングを考慮し、CIDRが重複しないように</li>
+<li>各サブネットの用途を明確に（命名規則も重要）</li>
+<li>一時的なワークロード（Auto Scaling、Kubernetesポッド等）のIP需要も考慮</li>
+</ul>
+<p>詳細は <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html">VPC CIDR blocks</a> および <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-sizing.html">Subnet sizing</a> を参照してください。設計例については <a href="https://d1.awsstatic.com/webinars/jp/pdf/services/20201021_AWS-BlackBelt-VPC.pdf">AWS Black Belt - Amazon VPC</a> も参考になります。CIDR設計の検討には <a href="https://v2.awssubnetcalculator.com/">AWS Subnet Calculator</a> が便利です。</p>
+</div>
+<p><strong>2. 可用性を考慮したマルチAZ構成</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>リージョン
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>├── AZ-a
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>│   ├── Public Subnet (NAT Gateway, ALB)
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>│   ├── Private Subnet (アプリ)
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>│   └── DB Subnet (RDS Primary)
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>└── AZ-c
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    ├── Public Subnet (NAT Gateway, ALB)
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    ├── Private Subnet (アプリ)
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    └── DB Subnet (RDS Standby)
+</code></pre></div>
+<h3 id="vpcprivatelink">VPCエンドポイントとPrivateLink<a class="headerlink" href="#vpcprivatelink" title="Permanent link">&para;</a></h3>
+<p>パブリックIPアドレスを使用せずにAWSサービスにアクセスする仕組みです。</p>
+<div class="admonition note">
+<p class="admonition-title">AWS内部通信について</p>
+<p><a href="https://aws.amazon.com/vpc/faqs/">Amazon VPC FAQ</a> によると、パブリックIPアドレスを使用した場合でも、AWS内部の通信はAWSプライベートネットワークを経由します（"When using public IP addresses, all communication between instances and services hosted in AWS use AWS's private network."）。VPCエンドポイントのメリットは「パブリックインターネットを経由しない」ことではなく、以下の点にあります。</p>
+</div>
+<p><strong>なぜVPCエンドポイントを使うのか:</strong></p>
+<ul>
+<li><strong>攻撃対象領域の削減</strong>: インターネットゲートウェイやNATゲートウェイが不要になり、パブリックIPアドレスも不要</li>
+<li><strong>詳細なアクセス制御</strong>: エンドポイントポリシーとセキュリティグループで細かく制御可能</li>
+<li><strong>コスト削減</strong>: NAT Gatewayを経由しないためデータ転送料金を削減（Gateway Endpointは無料）</li>
+</ul>
+<p>詳細は <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html">AWS PrivateLink concepts</a> を参照してください。</p>
+<p><strong>エンドポイントの種類:</strong></p>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>特徴</th>
+<th>対象サービス例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ゲートウェイ型</td>
+<td>ルートテーブルで制御、無料</td>
+<td>S3, DynamoDB</td>
+</tr>
+<tr>
+<td>インターフェース型</td>
+<td>ENIとして作成、時間課金</td>
+<td>その他多数のサービス</td>
+</tr>
+</tbody>
+</table>
+<p><strong>実装例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Private Subnet のアプリケーション
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  │
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  ├── S3 → ゲートウェイエンドポイント経由（NAT不要、無料）
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  ├── Secrets Manager → インターフェースエンドポイント経由
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  ├── ECR → インターフェースエンドポイント経由
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  └── CloudWatch Logs → インターフェースエンドポイント経由
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>インターネットアクセスが不要なら、NAT Gatewayも削除可能
+</code></pre></div>
+<h3 id="_13">インターネット接続の設計パターン<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>ここでは理解を助けるための構成例を紹介します。実際の設計は要件に応じて検討してください。</p>
+<p><strong>パターン1: ALB + NAT Gateway</strong></p>
+<table>
+<thead>
+<tr>
+<th>通信方向</th>
+<th>経路</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>インバウンド</td>
+<td>Internet → ALB → EC2/ECS</td>
+<td>ユーザーからのHTTPSリクエスト</td>
+</tr>
+<tr>
+<td>アウトバウンド</td>
+<td>EC2/ECS → NAT Gateway → Internet</td>
+<td>外部API呼び出し、パッケージ更新等</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Public Subnet:  ALB, NAT Gateway
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Private Subnet: EC2/ECS
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>【インバウンド】  Internet → ALB (Public) → EC2/ECS (Private)
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>【アウトバウンド】 EC2/ECS (Private) → NAT Gateway (Public) → Internet
+</code></pre></div>
+<p>NAT Gatewayはアウトバウンド専用です。外部からのインバウンド通信はALB経由で受け付けます。</p>
+<p><strong>パターン2: VPCエンドポイント中心（セキュリティ重視）</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>┌─────────────────┐
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>│ Private Subnet  │
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>│ ・Lambda/ECS    │
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>│                 │
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>│ VPC Endpoints:  │
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>│ ・S3            │──► AWSサービスへはエンドポイント経由
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>│ ・DynamoDB      │
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>│ ・Secrets Mgr   │
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>└─────────────────┘
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>（NAT Gateway不要、インターネット接続なし）
+</code></pre></div>
+<p><strong>パターン3: CloudFront + ALB（グローバル配信）</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>User → CloudFront → ALB (Public) → ECS (Private)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>         │
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>         └── エッジでキャッシュ、WAF、DDoS防御
+</code></pre></div>
+<h3 id="_14">よくある失敗パターン<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="admonition failure">
+<p class="admonition-title">失敗例1: Security Groupで 0.0.0.0/0 を許可</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>❌ Inbound: 0.0.0.0/0 から 22 (SSH) を許可
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>✅ 踏み台サーバー経由、またはSession Manager経由でアクセス
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>   Security Groupは踏み台のSGまたは完全にクローズ
+</code></pre></div>
+<p>SSHポートを全世界に公開すると、ブルートフォース攻撃の標的になります。</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">失敗例2: すべてのサービスにパブリックIPを付与</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>❌ RDSにパブリックアクセスを許可
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>❌ EC2にパブリックIPを付与してPublic Subnetに配置
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>✅ データベースは必ずPrivate Subnet
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>✅ アプリケーションサーバーもPrivate Subnetが基本
+</code></pre></div>
+<p>パブリックIPは必要最小限のリソースのみに付与してください。</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">失敗例3: アウトバウンド通信を制限していない</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>❌ Security GroupのアウトバウンドをAll traffic許可のまま放置
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>✅ 必要な通信先のみ許可（AWSサービス、特定のAPI等）
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>✅ VPCエンドポイントを活用してインターネット経由を減らす
+</code></pre></div>
+<p>侵害時のデータ漏洩やC2通信を制限するため、アウトバウンドも最小権限で設計してください。</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">失敗例4: セキュリティグループのルールが肥大化</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>❌ 1つのSGに数十のルールが追加され、何が許可されているか把握困難
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>❌ 不要になったルールが削除されずに残存
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>✅ 用途ごとにSGを分割し、組み合わせて使用
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>✅ 定期的にルールを棚卸しし、不要なルールを削除
+</code></pre></div>
+<p>管理不能なSGは設定ミスや過剰な許可の温床になります。</p>
+</div>
+<hr />
+<h2 id="_15">まとめ<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>ネットワーク防御の要点：</p>
+<ol>
+<li><strong>ネットワーク分離</strong>: Public/Privateサブネットの使い分け、マイクロセグメンテーションで攻撃範囲を限定</li>
+<li><strong>多層的なファイアウォール</strong>: Security Group（リソース単位）とNetwork ACL（サブネット単位）を組み合わせる</li>
+<li><strong>最小権限の原則</strong>: 必要な通信のみを許可。インバウンドだけでなくアウトバウンドも制限</li>
+<li><strong>アプリケーション層の防御</strong>: WAFによるL7防御、レート制限によるDDoS緩和</li>
+<li><strong>VPCエンドポイントの活用</strong>: 攻撃対象領域の削減と詳細なアクセス制御</li>
+</ol>
+<p>ネットワーク防御は「境界を守る」だけでなく、「侵害を前提として被害を最小化する」設計が重要です。</p>
+<p><a class="md-button" href="../detection-response/">検知と対応を学ぶ →</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
