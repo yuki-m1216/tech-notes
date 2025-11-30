@@ -96,3 +96,9 @@ nav:
       - 継続的なセキュリティ:
           - セキュアな開発と脆弱性管理: security/secure-development.md
           - 規制対応とデータ保護: security/compliance.md
+  - チーム開発の実践:
+      - team-development/index.md
+      - チームの土台: team-development/team-foundation.md
+      - 不確実性への対処: team-development/uncertainty.md
+      - 領域を超えた協働: team-development/cross-functional.md
+      - Shift Left: team-development/shift-left.md
