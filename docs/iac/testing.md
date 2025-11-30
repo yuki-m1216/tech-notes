@@ -549,12 +549,12 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
       static-analysis:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v3
+          - uses: actions/checkout@v4
 
           - name: Setup Node.js
-            uses: actions/setup-node@v3
+            uses: actions/setup-node@v4
             with:
-              node-version: '18'
+              node-version: '20'
 
           - name: Install dependencies
             run: npm ci
@@ -569,12 +569,12 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
       unit-test:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v3
+          - uses: actions/checkout@v4
 
           - name: Setup Node.js
-            uses: actions/setup-node@v3
+            uses: actions/setup-node@v4
             with:
-              node-version: '18'
+              node-version: '20'
 
           - name: Install dependencies
             run: npm ci
@@ -584,7 +584,7 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
             run: npm test
 
           - name: Upload coverage
-            uses: codecov/codecov-action@v3
+            uses: codecov/codecov-action@v5
             with:
               files: ./coverage/lcov.info
 
@@ -592,11 +592,11 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
       # policy-test:
       #   runs-on: ubuntu-latest
       #   steps:
-      #     - uses: actions/checkout@v3
+      #     - uses: actions/checkout@v4
       #     - name: Setup Node.js
-      #       uses: actions/setup-node@v3
+      #       uses: actions/setup-node@v4
       #       with:
-      #         node-version: '18'
+      #         node-version: '20'
       #     - name: Install dependencies
       #       run: npm ci
       #     - name: CDK Synth
@@ -621,7 +621,7 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
       static-analysis:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v3
+          - uses: actions/checkout@v4
 
           - name: Setup Terraform
             uses: hashicorp/setup-terraform@v3
@@ -631,7 +631,7 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
             run: terraform fmt -check -recursive
 
           - name: TFLint
-            uses: terraform-linters/setup-tflint@v3
+            uses: terraform-linters/setup-tflint@v4
           - run: tflint --init
           - run: tflint --recursive
 
@@ -641,7 +641,7 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
       unit-test:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v3
+          - uses: actions/checkout@v4
 
           - name: Setup Terraform
             uses: hashicorp/setup-terraform@v3
@@ -654,7 +654,7 @@ IaCテストは、**インフラ定義の正しさ**を保証することに集�
       # policy-test:
       #   runs-on: ubuntu-latest
       #   steps:
-      #     - uses: actions/checkout@v3
+      #     - uses: actions/checkout@v4
       #     - name: Setup Terraform
       #       uses: hashicorp/setup-terraform@v3
       #     - name: Terraform Plan

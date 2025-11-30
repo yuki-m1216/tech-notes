@@ -72,7 +72,7 @@
 
 ### テスト
 
-- **[cdkassert (AWS CDK Testing)](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions-readme.html)**
+- **[AWS CDK Assertions (テストライブラリ)](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions-readme.html)**
   CDK公式のテストライブラリドキュメント。
 
 - **[Terratest](https://terratest.gruntwork.io/)**

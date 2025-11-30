@@ -45,7 +45,7 @@
 
 ### オンラインリソース
 
-- [モニタリングのベストプラクティス（Datadog）](https://www.datadoghq.com/ja/blog/モニタリングのベストプラクティス/) - Datadog CTOによるモニタリング戦略の解説。ワークメトリクスとリソースメトリクスの分類、アクション可能なアラートの重要性について
+- [Monitoring 101: Collecting the Right Data（Datadog）](https://www.datadoghq.com/blog/monitoring-101-collecting-data/)（[日本語訳](https://www.datadoghq.com/ja/blog/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9/)） - Datadog CTOによるモニタリング戦略の解説。ワークメトリクスとリソースメトリクスの分類、アクション可能なアラートの重要性について
 - [Monitoring Distributed Systems（Google SRE Book）](https://sre.google/sre-book/monitoring-distributed-systems/) - Googleのモニタリング原則。アラート疲れの問題と「人を呼び出すことは高コスト」という考え方を解説
 - [Alerting Principles（PagerDuty）](https://response.pagerduty.com/oncall/alerting_principles/) - 「アラートは人間のアクションを必要とするもの」という原則を解説
 - [AWS Observability Best Practices](https://aws-observability.github.io/observability-best-practices/) - AWSにおけるオブザーバビリティのベストプラクティス集。CloudWatch、X-Ray、Syntheticsなどの活用方法

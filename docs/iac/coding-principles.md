@@ -832,17 +832,17 @@ const logBucket = new s3.Bucket(this, 'LogBucket', {
 ### 設計判断の記録
 
 ```typescript
-// NOTE: RDSではなくAurora Serverlessを選択した理由:
+// NOTE: RDSではなくAurora Serverless v2を選択した理由:
 // - トラフィックが不定期で自動スケーリングが必要
 // - 使用していない時間帯はコスト削減したい
 // - マルチAZ構成で高可用性を確保
-const cluster = new rds.ServerlessCluster(this, 'Database', {
-  engine: rds.DatabaseClusterEngine.AURORA_MYSQL,
-  scaling: {
-    minCapacity: rds.AuroraCapacityUnit.ACU_2,
-    maxCapacity: rds.AuroraCapacityUnit.ACU_16,
-    autoPause: cdk.Duration.minutes(10),
-  },
+const cluster = new rds.DatabaseCluster(this, 'Database', {
+  engine: rds.DatabaseClusterEngine.auroraMysql({
+    version: rds.AuroraMysqlEngineVersion.VER_3_04_0,
+  }),
+  serverlessV2MinCapacity: 0.5,
+  serverlessV2MaxCapacity: 16,
+  writer: rds.ClusterInstance.serverlessV2('writer'),
 });
 ```
 
